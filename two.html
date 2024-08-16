@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slider</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgb(250, 235, 215);
+        }
+
+        .container {
+            position: relative;
+            width: 60%;
+            max-width: 800px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .slider {
+            position: relative;
+            overflow: hidden;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+        }
+
+        .images {
+            display: flex;
+            width: 400%;
+            transition: margin-left 0.5s ease;
+        }
+
+        .images img {
+            height: 400px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .navigation {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+
+        .nav-button {
+            background: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 20px;
+            border-radius: 50%;
+            transition: background 0.3s ease;
+        }
+
+        .nav-button:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        input[type="radio"] {
+            display: none;
+        }
+
+        #slide1:checked ~ .images {
+            margin-left: 0;
+        }
+
+        #slide2:checked ~ .images {
+            margin-left: -100%;
+        }
+
+        #slide3:checked ~ .images {
+            margin-left: -200%;
+        }
+
+        #slide4:checked ~ .images {
+            margin-left: -300%;
+        }
+
+        /* Dots */
+        .dots {
+            position: absolute;
+            bottom: 10px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .dots label {
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            border: solid #fff 3px;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            margin: 5px;
+        }
+
+        .dots label:hover {
+            background: #fff;
+        }
+
+        /* Dots active state */
+        #slide1:checked ~ .dots label:nth-child(1),
+        #slide2:checked ~ .dots label:nth-child(2),
+        #slide3:checked ~ .dots label:nth-child(3),
+        #slide4:checked ~ .dots label:nth-child(4) {
+            background: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">Unwind with Stunning Landscapes</div>
+        <div class="slider">
+            <input type="radio" name="slider" id="slide1" checked>
+            <input type="radio" name="slider" id="slide2">
+            <input type="radio" name="slider" id="slide3">
+            <input type="radio" name="slider" id="slide4">
+
+            <div class="images">
+                <img src="l.jpg" class="m1" alt="img1">
+                <img src="m.jpg" class="m2" alt="img2">
+                <img src="n.jpg" class="m3" alt="img3">
+                <img src="o.jpg" class="m4" alt="img4">
+            </div>
+            
+          
+            <div class="dots">
+                <label for="slide1"></label>
+                <label for="slide2"></label>
+                <label for="slide3"></label>
+                <label for="slide4"></label>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
